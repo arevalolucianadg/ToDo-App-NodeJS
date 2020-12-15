@@ -1,9 +1,11 @@
-const argv = require('yargs').argv;
+const argv = require('./config/yargs').argv;
 
+console.log('argv: ', argv);
 const comando = argv._[0];
 
 switch (comando) {
     case 'crear':
+        console.log(argv.description);
         console.log('Crear nueva tarea.');
         break;
 
@@ -12,6 +14,7 @@ switch (comando) {
         break;
 
     case 'actualizar':
+        console.log(argv.description);
         console.log('Actualizar tarea.');
         break;
 
