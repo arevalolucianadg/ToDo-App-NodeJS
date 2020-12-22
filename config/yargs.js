@@ -3,6 +3,7 @@ const argvOpts = {
 };
 
 const argv = require('yargs')
+    .command('listar', 'Lista de tareas.')
     .command('crear', 'Crear tarea.', {
         description: {
             alias: 'd',

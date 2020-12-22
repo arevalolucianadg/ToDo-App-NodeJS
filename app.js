@@ -3,7 +3,6 @@ const colors = require('colors/safe');
 
 const { createTask, deleteTask, readFile, updateTask } = require('./tasksList/tasksList');
 
-console.log('argv: ', argv);
 const comando = argv._[0];
 
 switch (comando) {
