@@ -20,7 +20,9 @@ const readFile = () => {
         tasksList = [];
     }
 
-}
+    return tasksList;
+
+};
 
 
 const createTask = ( description ) => {
@@ -35,8 +37,35 @@ const createTask = ( description ) => {
     tasksList.push( task );
     saveDB();
 
+    return tasksList;
+};
+
+const updateTask = ( description, completed = true ) => {
+    
+    readFile();
+    let updatedTask = tasksList.filter( task => task.description === description );
+    updatedTask[0].isDone = completed;
+    
+    saveDB();
+    
+    return `La tarea \'${ updatedTask[0].description }\' ha sido actualizada.`;
+};
+
+const deleteTask = ( description ) => {
+
+    readFile();
+    let deletedTask = tasksList.filter( task => task.description !== description );
+
+    tasksList = deletedTask; 
+    saveDB();
+    
+    return `La tarea \'${ description }\' ha sido eliminada.`;
+
 };
 
 module.exports = {
-    createTask
-}
+    createTask,
+    readFile,
+    updateTask,
+    deleteTask
+};
